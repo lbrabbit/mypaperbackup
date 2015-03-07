@@ -4,15 +4,13 @@ Backup Tools for a Variety of Message Board一個能將幾種留言版備份的�
 This is a record of the project hosted previously on OpenFoundry 
 https://www.openfoundry.org/of/projects/99
 
-Description：	一個能將幾種留言版備份的軟體
-
-Maturity：	PREALPHA
-
-Programming Language：	Perl, Python
-
-Created at：	2004-03-19 12:34 +08:00
+- Description：	一個能將幾種留言版備份的軟體
+- Maturity：	PREALPHA
+- Programming Language：	Perl, Python
+- Created at：	2004-03-19 12:34 +08:00
 
 留言板備份軟體  
+
 作者：小兔黑黑(蘇孝恆)
 
 簡介
@@ -55,16 +53,16 @@ Proxy : 先留空白，如果備份時有錯誤訊息，可以在微軟的瀏覽
 
 填好了資料後就可以叫軟體為你辦事了 ^^
 
-要用第一大功能請按「備份」，在後台的網頁就會逐頁被拷貝下來。
-要用第二大功能請按「製作文字檔」(Taipeilink沒有)，程式就會由被拷貝下來的後台網頁抽出留言內容，轉為文字檔。所有的文字檔會匯合為一個All in 1 全備檔，以方便搜查。
-如果要中途停止，可按「暫停」。
-要結束，請按「離開」。
+- 要用第一大功能請按「備份」，在後台的網頁就會逐頁被拷貝下來。
+- 要用第二大功能請按「製作文字檔」(Taipeilink沒有)，程式就會由被拷貝下來的後台網頁抽出留言內容，轉為文字檔。所有的文字檔會匯合為一個All in 1 全備檔，以方便搜查。
+- 如果要中途停止，可按「暫停」。
+- 要結束，請按「離開」。
 
 程式輸出的檔案名稱：
 
-拷貝下來的網頁　　台長帳號_XXXX.htm
-留言文字檔　　　　台長帳號_XXXX.txt
-全備檔　　　　　　XXXXtoYYYY_台長帳號.txt
+- 拷貝下來的網頁　　台長帳號_XXXX.htm
+- 留言文字檔　　　　台長帳號_XXXX.txt
+- 全備檔　　　　　　XXXXtoYYYY_台長帳號.txt
 
 Linux
 --------
@@ -81,12 +79,12 @@ Linux用戶可直接執行Python的原始碼，不過需先安裝Tkinter library
 
 鳴謝
 --------
-中研院資訊所自由軟體鑄造場 (http://rt.openfoundry.org/)
-EasyGUI by Stephen Ferg (http://www.ferg.org/easygui/index.html)
-無名小站 (http://www.wretch.cc/)
-心靈小憩的藝文與科技生活園地 (http://he.cycu.edu.tw/phpBB21/)
-雨漣
-小地震
+- 中研院資訊所自由軟體鑄造場 (http://rt.openfoundry.org/)
+- EasyGUI by Stephen Ferg (http://www.ferg.org/easygui/index.html)
+- 無名小站 (http://www.wretch.cc/)
+- 心靈小憩的藝文與科技生活園地 (http://he.cycu.edu.tw/phpBB21/)
+- 雨漣
+- 小地震
 
 
 
