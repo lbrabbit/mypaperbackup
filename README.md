@@ -95,4 +95,4 @@ Linux用戶可直接執行Python的原始碼，不過需先安裝Tkinter library
 
 This program is superceded by the littleext FIrefox extension
 
-留言板備份軟體已經停止更新，PChome個人新聞台的後台留言因為網址更改而不能使用。無名留言版備份由我寫的火狐「我的小擴充套件  」取代，請參考http://littleext.openfoundry.org/
+留言板備份軟體已經停止更新，PChome個人新聞台的後台留言因為網址更改而不能使用。無名留言版備份由我寫的火狐「我的小擴充套件  」取代，請參考https://github.com/lbrabbit/littleext
