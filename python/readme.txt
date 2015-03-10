@@ -1,9 +1,13 @@
-­Ó¤H·s»D¥x³Æ¥÷³nÅé
-§@ªÌ¡G¤p¨ß(Ä¬§µ«í)
+¯d¨¥ªO³Æ¥÷³nÅé  
+§@ªÌ¡G¤p¨ß¶Â¶Â(Ä¬§µ«í)
 
 Â²¤¶
 --------
-­Ó¤H·s»D¥x¦b¤G¹s¹s¥|¦~ªì´¿­n±j¦æ¬å±¼©Ò¦³¹L¤d«h¥H¥~ªº«á¥x¯d¨¥¡A«Ü¦hºô¤Í­n¥^¦£¦a§äºô­¶³Æ¥÷³nÅé¡A¤£¹L¤j³¡¥÷ªº³nÅé¬O¸òµÛ³sµ²¥h³Æ¥÷¡A·|§â¥L¤Hªº«á¥x¤]§ì¦^¨Ó¡C¥»³nÅé¦]¬°¬O¬°­Ó¤H·s»D¥x«×¨­»s§@¡A¥O³o­Ó°ÝÃD±o¨ìªÈ¥¿¡A¦Ó¥BÁÙ¥i¥H§â¤º®eÂà¬°¤å¦rÀÉ¡C·í¤º®eÂà¬°¤å¦rÀÉ«á¡A¥i¥H°£¥hPChomeªº¼s§i©M§ó®e©ö´M§ä¯d¨¥¡A¨Ã¥i¥H´î¤Ö¤@¨Çªk«ß¤Wªº³Â·Ð¡C
+PChome­Ó¤H·s»D¥x¦b¤G¹s¹s¥|¦~ªì´¿­n±j¦æ¬å±¼©Ò¦³¹L¤d«h¥H¥~ªº«á¥x¯d¨¥¡A«Ü¦hºô¤Í­n¥^¦£¦a§äºô­¶³Æ¥÷³nÅé¡A¤£¹L¤j³¡¥÷ªº³nÅé¬O¸òµÛ³sµ²¥h³Æ¥÷¡A·|§â¥L¤Hªº«á¥x¤]§ì¦^¨Ó¡C¥»³nÅé¦]¬°¬O¬°­Ó¤H·s»D¥x«×¨­»s§@¡A¥O³o­Ó°ÝÃD±o¨ìªÈ¥¿¡A¦Ó¥BÁÙ¥i¥H§â¤º®eÂà¬°¤å¦rÀÉ¡C·í¤º®eÂà¬°¤å¦rÀÉ«á¡A¥i¥H°£¥hPChomeªº¼s§i©M§ó®e©ö´M§ä¯d¨¥¡A¨Ã¥i¥H´î¤Ö¤@¨Çªk«ß¤Wªº³Â·Ð¡C
+
+¸òµÛTaipeilink¦b2005¦~¤T¤ë17¤éÃö³¬¡A¤j®a¦pªG¥¼Âà¥hPhotolink¡A¯d¨¥ª©ªº¯d¨¥¤£ª¾¦ó®É·|®ø¥¢¡C¬Û¤ù¤j·§¤]¦³³Æ¥÷¡A¤£¹LªB¤Íªº¯d¨¥´N«Ü¬Ã¶QÅo¡C§Ú´N±N³nÅé§ï¤F¤@ÂI¨Ó§@Taipeilinkªº³Æ¥÷¡C
+
+¤§«á§Ú¤S§ï¤F¤@ÂI¨Ó§@µL¦W¯d¨¥ªOªº³Æ¥÷¡A©Ò¥H³o³nÅé²{¦b¥i¥H°µ¤T­Ó¯¸ªº³Æ¥÷¡C
 
 ¥»³nÅé¥t¤@­Ó¯S¦â´N¬O¥¦¬O¦Û¥Ñ³nÅé(GNU GPL±ÂÅv)¡C¦Û¥Ñ³nÅé¥]¬A¦³¥|¤è­±ªº¦Û¥Ñ¡G
  * ¥ô·N¨Ï¥Îªº¦Û¥Ñ¡F
@@ -11,13 +15,13 @@
  * «þ¨©µ¹¿ËªB¦n¤Íªº¦Û¥Ñ¡F
  * ´²¥¬­×§ï«áªº³nÅéªº¦Û¥Ñ¡C
 
-¦pªG·Q¦hÂI»{ÃÑ¦Û¥Ñ³nÅé¡A¥i¥H°Ñ¦Ñ¬x¦Ñ®v©MÄ§¥i¿Ëªº¤¶²Ð¤å³¹ªü ^^
+¦pªG·Q¦hÂI»{ÃÑ¦Û¥Ñ³nÅé¡A¥i¥H°Ñ¦Ò¬x¦Ñ®v©MÄ§¥i¿Ëªº¤¶²Ð¤å³¹ªü ^^
 http://www.cyut.edu.tw/~ckhung/ (¨£¡uµu¤å [articles]¡v©M¡uºtÁ¿ºK­n [slides]¡v)
 
-¥»³nÅéªºv0.01ª©¦b¤G¹s¹s¥|¦~ªì¤w¥HPerl¼g¦¨¡A¤£¹L­n¹ï¹q¸£½sµ{¦³ÂI»{ÃÑªº¤H¤~¯à¥Î¡A©ó¬O§@ªÌ´N¶}©l­p¹º½s¼g¹Ï¹³¤¶­±¡C¥i±¤¦]¬°¦£µÛ°µ¤£¦Pªº¨Æ¡A¦Ü¤µ¤~ÄÀ¥Xv0.02ª©¡C¥»³nÅéÁÙ¦³«Ü¦h¦a¤è»Ý­n§ïµ½¡A½Ð¦h¦h«ü±Ð¡C
+¥»³nÅé¬Ov0.1ª©¡AÁÙ¦³«Ü¦h¦a¤è»Ý­n§ïµ½¡A½Ð¦h¦h«ü±Ð¡C
 
-¥»³nÅéªººô¯¸¦b¤ßÆF¤p¾ÍªºÃÀ¤å»P¬ì§Þ¥Í¬¡¶é¦a¤W¡A¥i¥H¨Ó¬Ý¬Ý¯d­Ó¨¥¡C
-(http://he.cycu.edu.tw/phpBB21/viewtopic1.php?t=3914)
+¥»³nÅéªººô¯¸¦bµL¦W¡A¥i¥H¨Ó¬Ý¬Ý¯d­Ó¨¥¡C
+(http://www.wretch.cc/blog/lbrabbit&category_id=907623)
 µ{¦¡ªº¶}µoºô¯¸¦b¤¤¬ã°|¸ê°T©Òªº¦Û¥Ñ³nÅéÅ±³y³õ¡A¥i§Q¥Î¡u«Ý¿ì¨Æ¶µ¡v³ø§i¿ù»~©M§A·Q­nªº·s¥\¯à¡C
 (http://rt.openfoundry.org/Foundry/Project/index.html?Queue=99)
 
@@ -27,7 +31,7 @@ http://www.cyut.edu.tw/~ckhung/ (¨£¡uµu¤å [articles]¡v©M¡uºtÁ¿ºK­n [slides]¡v)
 
 ­n³o³nÅé¨Ä¨Äªº¬°§AªA°È¡A§A¥ý­n§i¶D¥¦¤@¨Ç¥²­nªº¸ê®Æ¡G
 
-Proxy : ³o­Ó«ÜÃø¸ÑÄÀªº :P ¦pªG§A¦b¥Î·L³nªºÂsÄý¾¹Internet Explorer¡A§A¥i¥H¥hºô»Úºô¸ô¿ï¶µ->¡u³s½u¡v->¡u°Ï°ìºô¸ô(Lan)³]©w¡v->¡uProxy¦óªA¾¹¡v¤¤§ä¥X¨Óªº¡C
+Proxy : ¥ý¯dªÅ¥Õ¡A¦pªG³Æ¥÷®É¦³¿ù»~°T®§¡A¥i¥H¦b·L³nªºÂsÄý¾¹Internet Explorerªººô»Úºô¸ô¿ï¶µ->¡u³s½u¡v->¡u°Ï°ìºô¸ô(Lan)³]©w¡v->¡uProxy¦óªA¾¹¡v¤¤§ä¥X¨Óªº¡C
 
 ³Æ¥÷Àx¦s¦ì¸m : ´N¬O§A·Q§â«þ¨©©ñ¦bµwºÐªº¤°»ò¦a¤è¡A¥i¥HÁä¤J¸ô®|¡A¤]¥i«ö¡uÂsÄý¡v¥h§ä¡C½Ð¥ý³]¦n¸ê®Æ§¨¡A¦b¡uÂsÄý¡v¤¤¨S¦³³]©w·s¸ê®Æ§¨ªº¾÷·|ªü :P
 
@@ -38,7 +42,7 @@ Proxy : ³o­Ó«ÜÃø¸ÑÄÀªº :P ¦pªG§A¦b¥Î·L³nªºÂsÄý¾¹Internet Explorer¡A§A¥i¥H¥hºô»Úº
 ¶ñ¦n¤F¸ê®Æ«á´N¥i¥H¥s³nÅé¬°§A¿ì¨Æ¤F ^^
 
 ­n¥Î²Ä¤@¤j¥\¯à½Ð«ö¡u³Æ¥÷¡v¡A¦b«á¥xªººô­¶´N·|³v­¶³Q«þ¨©¤U¨Ó¡C
-­n¥Î²Ä¤G¤j¥\¯à½Ð«ö¡u»s§@¤å¦rÀÉ¡v¡Aµ{¦¡´N·|¥Ñ³Q«þ¨©¤U¨Óªº«á¥xºô­¶©â¥X¯d¨¥¤º®e¡AÂà¬°¤å¦rÀÉ¡C©Ò¦³ªº¤å¦rÀÉ·|¶×¦X¬°¤@­ÓAll in 1 ¥þ³ÆÀÉ¡A¥H¤è«K·j¬d¡C
+­n¥Î²Ä¤G¤j¥\¯à½Ð«ö¡u»s§@¤å¦rÀÉ¡v(Taipeilink¨S¦³)¡Aµ{¦¡´N·|¥Ñ³Q«þ¨©¤U¨Óªº«á¥xºô­¶©â¥X¯d¨¥¤º®e¡AÂà¬°¤å¦rÀÉ¡C©Ò¦³ªº¤å¦rÀÉ·|¶×¦X¬°¤@­ÓAll in 1 ¥þ³ÆÀÉ¡A¥H¤è«K·j¬d¡C
 ¦pªG­n¤¤³~°±¤î¡A¥i«ö¡u¼È°±¡v¡C
 ­nµ²§ô¡A½Ð«ö¡uÂ÷¶}¡v¡C
 
@@ -52,7 +56,7 @@ Linux
 --------
 Linux¥Î¤á¥iª½±µ°õ¦æPythonªº­ì©l½X¡A¤£¹L»Ý¥ý¦w¸ËTkinter library¡C¦Ó¦w¸ËTkinter¥i¯à­n¥ý¦w¸Ëtcl,tk,itcl©Mtixµ¥library¡Aµø¥G¶Q¹q¸£©Ò¥ÎªºLinuxª©¥»¡C
 
-ªk«ß¦Ò¼{
+­Ó¤H·s»D¥x¤Wªºªk«ß¦Ò¼{
 --------
 ¦b­Ó¤H·s»D¥xªº¨Ï¥Î±ø´Ú¤¤¦³¨â±ø¦³Ãöª©Åvªº±ø´Ú¡G
 
@@ -65,6 +69,7 @@ Linux¥Î¤á¥iª½±µ°õ¦æPythonªº­ì©l½X¡A¤£¹L»Ý¥ý¦w¸ËTkinter library¡C¦Ó¦w¸ËTkinter¥i¯
 --------
 ¤¤¬ã°|¸ê°T©Ò¦Û¥Ñ³nÅéÅ±³y³õ (http://rt.openfoundry.org/)
 EasyGUI by Stephen Ferg (http://www.ferg.org/easygui/index.html)
+µL¦W¤p¯¸ (http://www.wretch.cc/)
 ¤ßÆF¤p¾ÍªºÃÀ¤å»P¬ì§Þ¥Í¬¡¶é¦a (http://he.cycu.edu.tw/phpBB21/)
 «Bº§
 ¤p¦a¾_

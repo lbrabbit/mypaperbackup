@@ -1,0 +1,1 @@
+site_type =['PChome_MyPaper','Taipeilink_Guest','Wretch_Guest']

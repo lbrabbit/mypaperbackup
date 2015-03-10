@@ -1,20 +1,62 @@
 import os
 import re
-import urllib
+import urllib2
 import socket
+import sys
 from Tkinter import *
 import tkFileDialog
 import tkMessageBox
 from string import replace
 execfile('txt_chinese.py')
 execfile('textbox.py')
-execfile('parameters.py')
+execfile('plugin.py')
 
 big_font=('Courier',20)
 norm_font=('Courier',12)
 small_font=('Courier',10)
 
-global abort_flag
+global abort_flag, site_typeid
+
+def page2buffer (url):
+    global abort_flag
+
+    opener = urllib2.build_opener()
+    opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+
+    try:
+        page=opener.open(url)  
+    except socket.error:
+        tkMessageBox.showwarning(message=txt_error_IO)
+        return 1,''
+    except TypeError:
+        tkMessageBox.showwarning(message=txt_error_proxy)
+        return 1,''
+    except:
+        tkMessageBox.showwarning(message=txt_error)
+        #raise
+        return 1,''
+    buffer=''
+    try:
+        onebit=page.read(read_size)
+        while (onebit):
+            buffer+=onebit
+            Apps.update()
+            onebit=page.read(read_size)
+            if abort_flag:
+                page.close()
+                return 1,''
+        page.close()
+    except socket.error:
+        tkMessageBox.showwarning(message=txt_error_IO)
+        return 1,''
+    except IOError:
+        tkMessageBox.showwarning(message=txt_error_IO)
+        return 1,''
+    except:
+        tkMessageBox.showwarning(message=txt_error)
+        #raise
+        return 1,''
+    return 0,buffer
 
 def setupgetpage (proxy,directory):
     if proxy:
@@ -25,20 +67,20 @@ def setupgetpage (proxy,directory):
         if not os.path.exists(directory+fname):
             Apps.lbl_status['text']=txt_backup+' '+fname
             Apps.update()
-            try:
-                urllib.urlretrieve(url_base+url_css+fname,directory+fname)
-            except socket.error:
-                tkMessageBox.showwarning(message=txt_error_IO)
+            error_flag,buffer=page2buffer(url_base+url_css+fname)
+            if error_flag:
                 return 1
+            Apps.update()
+            try:
+                outfile=file(directory+fname,'w')
+                outfile.write(buffer)
+                outfile.close()
             except IOError:
                 tkMessageBox.showwarning(message=txt_error_out+'\n'+fname)
                 return 1
-            except TypeError:
-                tkMessageBox.showwarning(message=txt_error_proxy)
-                return 1
             except:
                 tkMessageBox.showwarning(message=txt_error)
-                raise
+                #raise
                 return 1
 
 def getpage(userid,pageno,directory):
@@ -46,169 +88,54 @@ def getpage(userid,pageno,directory):
     Apps.update()
     url = url_base+url_board+userid
     url = url+url_var+str(pageno-url_differ)
-    try:
-        page=urllib.urlopen(url)
-    except socket.error:
-        tkMessageBox.showwarning(message=txt_error_IO)
+    error_flag,buffer=page2buffer(url)
+    if error_flag:
         return 1
-    except TypeError:
-        tkMessageBox.showwarning(message=txt_error_proxy)
-        return 1
-    except:
-        tkMessageBox.showwarning(message=txt_error)
-        raise
-        return 1
+    Apps.update()
+    buffer=replace (buffer,'href="/'+url_css,'href="')
     fname=directory+userid+'_%(#)04d'%{'#':pageno}+'.htm'
     try:
         outfile=file(fname,'w')
-        curline=page.readline()
-        while (curline):
-            curline=replace (curline,'href="/'+url_css,'href="')
-            outfile.write(curline)
-            Apps.update()
-            curline=page.readline()
-        page.close()
+        outfile.write(buffer)
         outfile.close()
-    except socket.error:
-        tkMessageBox.showwarning(message=txt_error_IO)
-        return 1
     except IOError:
         tkMessageBox.showwarning(message=txt_error_out+'\n'+fname)
         return 1
     except:
         tkMessageBox.showwarning(message=txt_error)
-        raise
+        #raise
         return 1
+    Apps.update()
 
 def htmlspecialchars(instr):
     instr=replace(instr,'&amp;','&')
     instr=replace(instr,'&quot;','"')
     instr=replace(instr,'&lt;','<')
     instr=replace(instr,'&gt;','>')
+    instr=replace(instr,'&nbsp;',' ')
+    instr=replace(instr,'&nbsp',' ')
+    res=re.compile('&#(\d+);').search(instr)
+    while res:
+        tmp1=res.group(1)
+        tmp2=str(int(tmp1))
+        tmp2=unichr(int(tmp1)).encode('utf_8')
+        tmp1='&#'+tmp1+';'
+        instr=replace(instr,tmp1,tmp2)
+        res=re.compile('&#(\d+)').search(instr)
     return instr
-
-def convert(fpath,userid,pageno,addmark=False):
-    Apps.lbl_status['text']=txt_create+txt_txtfile+txt_no+str(pageno)+txt_page
-    Apps.update()
-    try:
-        fname=fpath+userid+'_%(#)04d'%{'#':pageno}+'.htm'
-        infile=file(fname,'r')
-    except IOError:
-        tkMessageBox.showwarning(message=txt_error_in+'\n'+fname)
-        return 1
-    except:
-        tkMessageBox.showwarning(message=txt_error)
-        raise
-        return 1
-    try:
-        fname=fpath+userid+'_%(#)04d'%{'#':pageno}+'.txt'
-        outfile=file (fname,'w')
-    except IOError:
-        tkMessageBox.showwarning(message=txt_error_out+'\n'+fname)
-        return 1
-    except:
-        tkMessageBox.showwarning(message=txt_error)
-        raise
-        return 1
-    flag=0
-    curline=infile.readline()
-    while (curline):
-        if re.compile('\<\/table').search(curline) and flag >0 :
-            if flag==1 :
-                res=re.compile('\xA6\x57\xA1\x47\s*\n\s+(\S+)\s').search(buf)
-                if res:
-                    mtch=res.group(1)
-                else:
-                    mtch=''
-                name= 'Name\t'+mtch+'\n'
-                res=re.compile('mail\xA1\x47\s\<a\shref=\"mailto:(\S+)\"').search(buf)
-                if res:
-                    mtch=res.group(1)
-                else:
-                    mtch=''
-                Mail= 'Mail\t'+mtch+'\n'
-            else:
-                buf=re.compile('\<br\s\/\>').sub('',buf)
-                buf=re.compile('\<BR\>',re.I).sub('\n',buf)
-    
-                pattern='\<!--\xAF\x64\xA8\xA5\s--\>(.+)\<!--\xAF\x64\xA8\xA5\send--\>'
-                res=re.compile(pattern,re.S).search(buf)
-                if res:
-                    mtch=res.group(1)
-                else:
-                    mtch=''
-                mtch=mtch[3:]
-                mtch=re.compile('^\s+').sub('',mtch)
-                mtch=re.compile('\<FONT\ssize=\"-2\"\scolor=\"\#FFFFFF\">').sub('',mtch)
-                mtch=re.compile('\<\/FONT\>\s+$').sub('',mtch)
-                msg = 'Msg\n'+mtch+'\n'
-    
-                pattern='\<!--\xA4\xE9\xB4\xC1\s--\>.+--(.+\d)\s+--.+\<\/div'
-                res=re.compile(pattern,re.S).search(buf)
-                if res:
-                    mtch=res.group(1)
-                else:
-                    mtch=''
-                mtch=mtch[3:]
-                mtch=re.compile('^\s+').sub('',mtch)
-                mtch=re.compile('\s+').sub(' ',mtch)
-                dateofmsg = 'Date\t'+mtch+'\n'
-    
-                res=re.compile('\<!--homepage\s--\>(.+)\s+<\/a>',re.S).search(buf)
-                if res:
-                    mtch=res.group(1)
-                else:
-                    mtch=''
-                mtch=mtch[3:]
-                mtch=re.compile('^\s+').sub('',mtch)
-                mtch=re.compile('\s+').sub(' ',mtch)
-                url = 'URL\t'+mtch+'\n'
-                try:
-                    if addmark:    
-                        outfile.write(addmark+name)
-                        outfile.write(addmark+dateofmsg)
-                        outfile.write(addmark+Mail)
-                        outfile.write(addmark+url)
-                        outfile.write(addmark+msg)
-                    else:
-                        outfile.write(name)
-                        outfile.write(dateofmsg)
-                        outfile.write(Mail)
-                        outfile.write(url)
-                        outfile.write(msg)
-                    outfile.write('\n\n')
-                except IOError:
-                    tkMessageBox.showwarning(message=txt_error_out+'\n'+fname)
-                    return 1
-                except:
-                    tkMessageBox.showwarning(message=txt_error)
-                    raise
-                    return 1
-            flag=0
-        if flag >0:
-            buf=buf+htmlspecialchars(curline)
-        if re.compile('F4FBFF').search(curline):
-            flag=1
-            buf=''
-        if re.compile('\<td class=\"tb2\"\>').search(curline):
-            flag=2
-            buf=''
-        curline=infile.readline()
-    outfile.close()
-    infile.close()
 
 class Application(Frame):
     def FDialogDir(self): 
-	if self.ent_path.get():
-		fpath=self.ent_path.get()
-	else:
-		fpath='c:/'
-	fpath=tkFileDialog.askdirectory(initialdir=fpath)
-	if fpath:
+        if self.ent_path.get():
+            fpath=self.ent_path.get()
+        else:
+            fpath='c:/'
+        fpath=tkFileDialog.askdirectory(initialdir=fpath)
+        if fpath:
             self.ent_path.delete(0,END)
             self.ent_path.insert(0,fpath)
             self.update()
-        self.fixpath()
+            self.fixpath()
 
     def fixpath(self):
         fpath=self.ent_path.get()
@@ -234,32 +161,32 @@ class Application(Frame):
             return 1
 
         userid=self.ent_userid.get()
-	if not userid:
+        if not userid:
             tkMessageBox.showwarning(message=txt_error_noid)
             return 1
             
-	startpage=self.ent_start.get()
+        startpage=self.ent_start.get()
         try:
             startpage=int(startpage)
         except ValueError:
             tkMessageBox.showwarning(message=txt_error_start)
             return 1
 
-	startpage=self.ent_start.get()
+        startpage=self.ent_start.get()
         try:
             startpage=int(startpage)
         except ValueError:
             tkMessageBox.showwarning(message=txt_error_start)
             return 1
 
-	endpage=self.ent_end.get()
+        endpage=self.ent_end.get()
         try:
             endpage=int(endpage)
         except ValueError:
             tkMessageBox.showwarning(message=txt_error_end)
             return 1
 
-	if startpage > endpage:
+        if startpage > endpage:
             tkMessageBox.showwarning(message=txt_error_bigger)
             return 1
 
@@ -268,13 +195,13 @@ class Application(Frame):
         self.update()
         abort_flag=0
 
-        socket.setdefaulttimeout(60)
+        socket.setdefaulttimeout(socket_timeout)
         if self.go_validate():
             return
         fpath=self.ent_path.get()
         userid=self.ent_userid.get()
-	startpage=int(self.ent_start.get())
-	endpage=int(self.ent_end.get())
+        startpage=int(self.ent_start.get())
+        endpage=int(self.ent_end.get())
 
         # Do the Stuff
         self.update() 
@@ -311,9 +238,9 @@ class Application(Frame):
             return
         fpath=self.ent_path.get()
         userid=self.ent_userid.get()
-	startpage=int(self.ent_start.get())
-	endpage=int(self.ent_end.get())
-	addmark=self.ent_addmark.get()
+        startpage=int(self.ent_start.get())
+        endpage=int(self.ent_end.get())
+        addmark=self.ent_addmark.get()
 
         # Do the Stuff
         for pageno in range (startpage,(endpage+1)) :
@@ -335,7 +262,7 @@ class Application(Frame):
             return
         except:
             tkMessageBox.showwarning(message=txt_error)
-            raise
+            #raise
             self.lbl_status['text']=txt_break
             self.update() 
             return
@@ -363,7 +290,7 @@ class Application(Frame):
                 abort_flag=1
             except:
                 tkMessageBox.showwarning(message=txt_error)
-                raise
+                #raise
                 abort_flag=1
             try: 
                 outfile.write(buf)
@@ -372,7 +299,7 @@ class Application(Frame):
                 abort_flag=1
             except:
                 tkMessageBox.showwarning(message=txt_error)
-                raise
+                #raise
                 abort_flag=1
         outfile.close()
 
@@ -388,8 +315,10 @@ class Application(Frame):
             self.quit ()
 
     def createWidgets(self):
+        global site_typeid
+
         self.lbl_title = Label(self,font=big_font)
-        self.lbl_title["text"] = txt_backstage
+        self.lbl_title["text"] = txt_backstage[site_typeid]
         self.lbl_title.grid(row=0,column=0,columnspan=10,sticky=W)
 
         self.lbl_proxy = Label(self,font=norm_font)
@@ -423,7 +352,7 @@ class Application(Frame):
         self.ent_userid.grid(row=3,column=2,columnspan=6,sticky=W)
 
         self.lbl_userid2 = Label(self,font=norm_font)
-        self.lbl_userid2["text"] = txt_userid2
+        self.lbl_userid2["text"] = txt_userid2[site_typeid]
         self.lbl_userid2.grid(row=4,column=0,columnspan=2,sticky=W)
 
         self.lbl_start = Label(self,font=norm_font)
@@ -483,5 +412,42 @@ class Application(Frame):
         self.pack()
         self.createWidgets()
 
-Apps=Application(txt_backstage)
+class Init_Choice(Frame):
+    def ShowMain(self):
+        global site_typeid
+
+        tmp = self.list_type.curselection()
+        if len(tmp) > 0:
+            site_typeid=int(tmp[0])
+        self.quit()
+    def endprogram(self):
+        sys.exit()
+    def createWidgets(self):
+        self.list_type = Listbox(self,font=norm_font,height=len(site_type))
+        self.list_type.grid(row=0,column=0,columnspan=2,sticky=W)
+        for item in site_type:
+            self.list_type.insert(END, item)
+        self.list_type.select_set(0)
+
+        self.ent_ok = Button(self,font=norm_font)
+        self.ent_ok["text"] = ' OK '
+        self.ent_ok["command"] = self.ShowMain
+        self.ent_ok.grid(row=1,column=0,sticky=W)
+
+        self.QUIT = Button(self,font=norm_font)
+        self.QUIT["text"] = ' '+txt_quit+' '
+        self.QUIT["command"] = self.endprogram
+        self.QUIT.grid(row=1,column=1,sticky=W)
+
+    def __init__(self, title):
+        Frame.__init__(self,takefocus=TRUE)
+        self.master.title(title)
+        self.pack()
+        self.createWidgets()
+
+Apps=Init_Choice(txt_title)
+Apps.mainloop()
+Apps.destroy()
+execfile(site_type[site_typeid]+'.py')
+Apps=Application(txt_backstage[site_typeid])
 Apps.mainloop()
